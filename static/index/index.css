@@ -1,0 +1,198 @@
+#indexContainer {
+  width: 100%;
+}
+#indexContainer .indexMain {
+  width: 100%;
+}
+#indexContainer .indexMain .indexHeader {
+  background-color: #fff;
+  width: 100%;
+  height: 75px;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+#indexContainer .indexMain .indexHeader .indexHeaderTop {
+  width: 100%;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#indexContainer .indexMain .indexHeader .indexHeaderTop a {
+  zoom: 1;
+}
+#indexContainer .indexMain .indexHeader .indexHeaderTop a img {
+  width: 70px;
+  height: 20px;
+  margin-right: 8px;
+}
+#indexContainer .indexMain .indexHeader .indexHeaderTop .indexSearch {
+  width: 220px;
+  height: 30px;
+  line-height: 30px;
+  background: #ededed;
+  text-align: center;
+}
+#indexContainer .indexMain .indexHeader .indexHeaderTop .indexSearch span {
+  font-size: 12px;
+  color: #666;
+}
+#indexContainer .indexMain .indexHeader .indexHeaderTop .btn {
+  width: 40px;
+  height: 20px;
+  margin-left: 8px;
+  background: #fff;
+  border: 1px solid #b9383d;
+  color: #b9383d;
+  border-radius: 10%;
+  font-size: 12px;
+}
+#indexContainer .indexMain .indexHeader .indexHeaderBottom {
+  height: 30px;
+  overflow: hidden;
+}
+#indexContainer .indexMain .indexHeader .indexHeaderBottom .indexHeaderBottomList {
+  width: 830px;
+  height: 33px;
+  padding-left: 14px;
+}
+#indexContainer .indexMain .indexHeader .indexHeaderBottom .indexHeaderBottomList .indexHeaderBottomItem {
+  float: left;
+  height: 33px;
+  line-height: 30px;
+  text-align: center;
+  padding: 0 10px;
+  font-size: 14px;
+}
+#indexContainer .indexMain .indexConent {
+  overflow: hidden;
+  padding-top: 75px;
+  padding-bottom: 50px;
+}
+#indexContainer .indexMain .indexConent .indexBanner {
+  width: 100%;
+  height: 180px;
+}
+#indexContainer .indexMain .indexConent .indexBanner img {
+  width: 100%;
+  height: 100%;
+}
+#indexContainer .indexMain .indexConent .indexConentList {
+  width: 100%;
+  height: 36px;
+  padding: 0 15px;
+}
+#indexContainer .indexMain .indexConent .indexConentList .indexConentItem {
+  width: 110px;
+  height: 36px;
+  line-height: 36px;
+  float: left;
+  font-size: 12px;
+  text-align: center;
+}
+#indexContainer .indexMain .indexConent .indexConentList .indexConentItem i {
+  color: #f00;
+}
+#indexContainer .indexMain .indexConent .indexConentSort {
+  width: 100%;
+  height: 170px;
+  overflow: hidden;
+  padding: 0 5px 10px 5px;
+}
+#indexContainer .indexMain .indexConent .indexConentSort .indexConentSortItem {
+  width: 20%;
+  height: 50%;
+  float: left;
+  text-align: center;
+}
+#indexContainer .indexMain .indexConent .indexConentSort .indexConentSortItem img {
+  display: block;
+  width: 55px;
+  height: 55px;
+  margin: 0 auto;
+}
+#indexContainer .indexMain .indexConent .indexConentSort .indexConentSortItem span {
+  display: block;
+  font-size: 12px;
+  margin-top: 5px;
+}
+#indexContainer .indexMain .indexConent .bigBanner {
+  display: block;
+  width: 100%;
+  height: 63px;
+}
+#indexContainer .indexMain .indexConent .bigBanner img {
+  width: 100%;
+  height: 100%;
+}
+#indexContainer .indexMain .indexConent .discount {
+  width: 100%;
+  height: 260px;
+  padding: 5px 15px 5px;
+}
+#indexContainer .indexMain .indexConent .discount .discountContent {
+  display: block;
+  width: 170px;
+  height: 130px;
+  background: #f5f5f5;
+  float: left;
+}
+#indexContainer .indexMain .indexConent .discount .discountContent:nth-child(2n+1) {
+  margin-right: 5px;
+}
+#indexContainer .indexMain .indexConent .discount .discountContent:nth-child(1) {
+  margin-bottom: 5px;
+}
+#indexContainer .indexMain .indexConent .discount .discountContent:nth-child(2) {
+  margin-bottom: 5px;
+}
+#indexContainer .indexMain .indexConent .discount .discountContent .text {
+  padding: 10px;
+  line-height: 20px;
+}
+#indexContainer .indexMain .indexConent .discount .discountContent .text .p1 {
+  font-size: 16px;
+  color: #333;
+}
+#indexContainer .indexMain .indexConent .discount .discountContent .text .p2 {
+  font-size: 12px;
+}
+#indexContainer .indexMain .indexConent .discount .discountContent .discountImages {
+  zoom: 1;
+}
+#indexContainer .indexMain .indexConent .discount .discountContent .discountImages img {
+  width: 75px;
+  height: 75px;
+}
+#indexContainer .indexFooter {
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  background: #fff;
+}
+#indexContainer .indexFooter .indexFooterList {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+#indexContainer .indexFooter .indexFooterList .indexFooterItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 20%;
+}
+#indexContainer .indexFooter .indexFooterList .indexFooterItem a {
+  display: block;
+}
+#indexContainer .indexFooter .indexFooterList .indexFooterItem a i {
+  display: block;
+  margin: 0 auto;
+  width: 20px;
+  height: 20px;
+}
+#indexContainer .indexFooter .indexFooterList .indexFooterItem a p {
+  font-size: 12px;
+}
