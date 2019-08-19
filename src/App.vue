@@ -1,20 +1,33 @@
 <template>
   <div id="app">
-    <Index/>
+    <!--最外层大容器-->
+    <div id="indexContainer">      
+      <router-view></router-view>
+      <Footer/>
+    </div>
   </div>
 </template>
 
 <script>
-import Index from './components/Index/Index'
+
+import Footer from './pages/footer/Footer'
 
 export default {
   name: 'app',
-  components: {
-    Index
+  components: {    
+    Footer
   }
 }
 </script>
 
-<style>
-
+<style lang="stylus" rel="stylesheet/stylus">
+  #app
+    width 100%
+    height 100%
+    background-color #F4F4F4
+    #indexContainer
+      width 100%
+      height 100%
+      background-color #fff
+    
 </style>
