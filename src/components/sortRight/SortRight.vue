@@ -1,45 +1,13 @@
 <template>
-  <div class="contentRight">
+  <div class="contentRight" v-if="categoryList.length">
     <div class="sortRight">
       <div class="sortbanner">
-        <img src="../../pages/sort/images/sortbanner.jpg">
+        <img :src="categoryList[index].bannerUrl">
       </div>
       <ul class="contentRightBottom">
-        <li>
-          <img src="../../pages/sort/images/sortlist.png">
-          <p>员工精选好货</p>
-        </li>
-        <li>
-          <img src="../../pages/sort/images/sortlist.png">
-          <p>员工精选好货</p>
-        </li>
-        <li>
-          <img src="../../pages/sort/images/sortlist.png">
-          <p>员工精选好货</p>
-        </li>
-        <li>
-          <img src="../../pages/sort/images/sortlist.png">
-          <p>员工精选好货</p>
-        </li>
-        <li>
-          <img src="../../pages/sort/images/sortlist.png">
-          <p>员工精选好货</p>
-        </li>
-        <li>
-          <img src="../../pages/sort/images/sortlist.png">
-          <p>员工精选好货</p>
-        </li>
-        <li>
-          <img src="../../pages/sort/images/sortlist.png">
-          <p>员工精选好货</p>
-        </li>
-        <li>
-          <img src="../../pages/sort/images/sortlist.png">
-          <p>员工精选好货</p>
-        </li>
-        <li>
-          <img src="../../pages/sort/images/sortlist.png">
-          <p>员工精选好货</p>
+        <li v-for="item in categoryList[index].subCateList" :key="item.id">
+          <img :src="item.wapBannerUrl">
+          <p>{{item.name}}</p>
         </li>
       </ul>
     </div>
@@ -47,13 +15,32 @@
 </template>
 
 <script type="text/ecmascript-6">
+import {mapState} from 'vuex'
+import BScroll from 'better-scroll'
   export default {
+    props: ['index'],
+    computed: {
+      ...mapState(['categoryList'])
+    },
+    async mounted() {
+      // await this.$store.dispatch('getCategory')
+      console.log(this.categoryList)
+      this.$nextTick(()=>{
+        console.log(this.categoryList.length,this._props.index)
+        // new BScroll('contentRight',{
+        //   click:true,
+        //   scrollY:true,
+        //   probeType:3
+        // })
+      })
+    },
   }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
   .contentRight      
     width 300px
+    height 100%
     padding 15px 15px 100px
     box-sizing border-box
     .sortRight 
@@ -69,7 +56,6 @@
       width 270px            
       display flex
       flex-wrap wrap
-      justify-content center
       li
         width 72px
         height 110px

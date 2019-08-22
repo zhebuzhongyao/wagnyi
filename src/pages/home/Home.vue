@@ -6,7 +6,7 @@
       <div class="indexConent">
         <!--轮播-->
         <div class="indexBanner">
-          <div class="swiper-container">
+          <div class="swiper-container swiper-container1">
             <div class="swiper-wrapper">
                 <div class="swiper-slide"><img src="./images/banner/1.jpg"></div>
                 <div class="swiper-slide"><img src="./images/banner/2.jpg"></div>
@@ -17,63 +17,18 @@
             <!-- 如果需要分页器 -->
             <div class="swiper-pagination"></div>                     
           </div>       
-        </div>                  
-        
-        <ul class="indexConentList">
-          <li class="indexConentItem">
-            <i class="iconfont icon-airudiantubiaohuizhi-zhuanqu_yiwutong"></i>
-            <span>网易自营品牌</span>
-          </li>
-          <li class="indexConentItem">
-            <i class="iconfont icon-anquan"></i>
-            <span>30天无忧退货</span>
-          </li>
-          <li class="indexConentItem">
-            <i class="iconfont icon-jiaoyi"></i>
-            <span>48小时快速退款</span>
-          </li>
+        </div>                          
+        <ul class="indexConentList">       
+          <li class="indexConentItem" v-for="(item, index) in describe" :key="index">
+            <img :src="item.icon"/>
+            <span>{{item.desc}}</span>
+          </li>         
         </ul>
         <!--新品首发-->
         <ul class="indexConentSort">
-          <li class="indexConentSortItem">
-            <img src="./images/sorts/1.gif">
-            <span>新品首发</span>
-          </li>
-          <li class="indexConentSortItem">
-            <img src="./images/sorts/2.png">
-            <span>新品首发</span>
-          </li>
-          <li class="indexConentSortItem">
-            <img src="./images/sorts/3.png">
-            <span>新品首发</span>
-          </li>
-          <li class="indexConentSortItem">
-            <img src="./images/sorts/4.png">
-            <span>新品首发</span>
-          </li>
-          <li class="indexConentSortItem">
-            <img src="./images/sorts/5.png">
-            <span>新品首发</span>
-          </li>
-          <li class="indexConentSortItem">
-            <img src="./images/sorts/1.gif">
-            <span>新品首发</span>
-          </li>
-          <li class="indexConentSortItem">
-            <img src="./images/sorts/1.gif">
-            <span>新品首发</span>
-          </li>
-          <li class="indexConentSortItem">
-            <img src="./images/sorts/1.gif">
-            <span>新品首发</span>
-          </li>
-          <li class="indexConentSortItem">
-            <img src="./images/sorts/1.gif">
-            <span>新品首发</span>
-          </li>
-          <li class="indexConentSortItem">
-            <img src="./images/sorts/1.gif">
-            <span>新品首发</span>
+          <li class="indexConentSortItem" v-for="(item, index) in shopnav.kingKongList" :key="index">
+            <img :src="item.picUrl">
+            <span>{{item.text}}</span>
           </li>
         </ul>
         <!--大图-->
@@ -126,43 +81,57 @@
         <!--私人订制-->
         <div class="siren">
           <p>私人订制</p>
-          <div class="swiper-container2">
+          <div class="swiper-container2 swiper-container">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <img src="./images/siren/1.png">
-                  <p>木糖醇手口湿巾￥9.9</p>
-                </div>
-                <div class="swiper-slide">
-                    <img src="./images/siren/1.png">
-                </div>
-                <div class="swiper-slide">
-                  <img src="./images/siren/1.png">
-                </div>
-                <div class="swiper-slide">
-                  <img src="./images/siren/1.png">
-                </div>
-                <div class="swiper-slide">
-                  <img src="./images/siren/1.png">
-                </div>
-                <div class="swiper-slide">
-                  <img src="./images/siren/1.png">
-                </div>
+                <div class="swiper-slide" v-for="(item, index) in personalShops" :key="index">
+                  <div v-for="(i, index) in item" :key="index">
+                      <img :src="i.listPicUrl" >
+                      <p>{{i.name}}</p> 
+                  </div>                                                      
+                </div>               
             </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination" id="sirendingzhi"></div>
           </div>
+          
         </div>
         <!--限时购-->
+        <TimeLimit :timeLimitedPurchase='timeLimitedPurchase'/>
+        <!--新品首发-->
         <div class="timeShop">
-          <div class="text">
-            <span>限时购</span>
-            <a class='more'>更多></a>
-          </div>          
+          <more/>          
           <ul class="timeShopList">
-            <li class="timeShopItem">
-              <img src="./images/xianshi/1.png"/>
-              <span>￥59</span>
-              <span>￥80</span>
+            <li class="timeShopItem" v-for="(item, index) in newItemList" :key="index">
+              <img :src="item.listPicUrl"/>
+              <span>{{item.name}}</span>
+              <span class="price">￥{{item.counterPrice}}</span>
             </li>
           </ul>
+        </div>
+        <!--人气推荐-->
+        <div class="popularity">
+          <more/> 
+          <div class="top">
+            <div class="left">
+              <img src="./images/renqi/renqi.png"/>
+            </div>
+            <div class="right">
+              <div class="dis">11</div>
+              <div class="big">22</div>
+              <div class="small">33</div>
+              <div class="pri">44</div>
+            </div>
+          </div> 
+          <div class="bottom">
+            <ul class="list">
+              <li class="item" v-for="(i, index) in popularItemList" :key="index">
+                <img :src="i.listPicUrl"/>
+                <span class="desc">{{i.name}}</span>
+                <span class="label" v-if="i.itemTagList.length">{{i.itemTagList[0].name}}</span>
+              </li>
+            </ul>
+          </div>        
+          
         </div>
       </div>
     </div>
@@ -172,28 +141,64 @@
   import Swiper from 'swiper'
   import "swiper/dist/css/swiper.css"
   import Header from '../../components/header/Header.vue'
+  import TimeLimit from '../../components/timeLimit/TimeLimit.vue'
+  import More from '../../components/more/more.vue'
+  
+  import {mapState} from 'vuex'
 
   export default {
-    mounted() {
-      new Swiper ('.swiper-container', {    
-        loop: true,     
+    computed: {
+      ...mapState(['describe','personalShop','shopnav','timeLimitedPurchase','newItemList','popularItemList']),
+      personalShops(){
+        const bigArr=[]
+        let smallArr=[]
+        // console.log(this.personalShop)
+        if ( this.personalShop instanceof Array) {
+          this.personalShop.forEach((item)=>{
+            
+            if(smallArr.length===0){
+              bigArr.push(smallArr)
+            }
+            smallArr.push(item)
+
+            if(smallArr.length===3){
+              // console.log(111)
+              smallArr=[]
+            }
+           
+          })
+        }
+        // console.log(bigArr)
+        
+        return bigArr
+      }
+
+      
+    },
+    async mounted() {
+      await this.$store.dispatch("getDesc")
+      new Swiper ('.swiper-container1', {    
+        loop: true, 
+        autoplay:true,//自动轮播    
         pagination: {
           el: '.swiper-pagination',
         },
       
-      }),
+      })
       new Swiper('.swiper-container2',{
-        loop: true,
-        
-        slidesPerView : 3,
-        // spaceBetween : 5,
-        //spaceBetween : '10%',按container的百分比
-
-        
-        })       
+        loop: true,        
+        // slidesPerView : 3,
+        autoplay:true, 
+        pagination: {
+          el: '.swiper-pagination',
+        },     
+      })    
     },
     components:{
-      Header
+      Header,
+      TimeLimit,
+      More
+      
     }
       
   }
@@ -202,6 +207,7 @@
 <style lang="stylus" rel="stylesheet/stylus" scoped>
   .indexMain
     width 100%
+    background #F4F4F4
     //内容区
     .indexConent
       overflow: hidden
@@ -211,10 +217,12 @@
       .indexBanner
         width 100%
         height 180px
+        overflow hidden
         img
           width 100%
           height 100%
       .indexConentList
+        background #fff
         box-sizing border-box
         width 100%
         height 36px
@@ -225,10 +233,12 @@
           line-height 36px
           float left
           font-size 12px
-          text-align center
-          i
-            color red
+          text-align center          
+          img
+            width 10px
+            height 10px            
       .indexConentSort
+        background #fff
         width 100%
         height 170px
         overflow hidden
@@ -256,9 +266,11 @@
           width 100%
           height 100%
       .discount
+        margin-bottom 10px
+        background #fff
         box-sizing border-box
         width 100%
-        height 260px
+        height 290px
         //background red
         padding 5px 15px 5px
         .discountContent
@@ -287,48 +299,119 @@
               width 75px
               height 75px
       .siren
+        background #fff
         width 100%
-        height 230px         
-        padding 5px 10px
+        height 230px 
+        padding-top 5px
+        padding-left 10px
+        padding-right 10px
         box-sizing border-box
+        margin-bottom 10px        
         p
           height 50px
           line-height 50px
+          font-size 16px
+          box-sizing border-box
         .swiper-container2
           width 100%
-          height 100%
+          height 155px
+          padding-bottom 30px
+          box-sizing border-box
           .swiper-wrapper
+            height 190px
             .swiper-slide
-              width 30%
-              height 150px                
-              img
-                width 100px
-                height 100px
-                background-color #F5F5F5
-              p
-                font-size 12px
+              display flex
+              height 150px
+              div 
+                width 180px
+                height 150px               
+                img
+                  width 100px
+                  height 100px
+                  background-color #F5F5F5
+                p
+                  font-size 12px
+                  width 108px
       .timeShop
+        background #fff
+        margin-bottom 10px
         width 100%
-        height 350px
+        height 355px
         padding 10px 0
-        
-        .text
-          height 50px
-          a
-            float right
+        margin-bottom 10px   
+        overflow hidden    
         .timeShopList
           width 100%
+          height 300px
+          padding 0 5px 0 15px
+          display flex
+          flex-wrap wrap
           .timeShopItem
             height 150px
-            width 100px
+            width 110px
+            margin-right 10px
+            padding-bottom 15px            
             img
               width 100px
               height 100px
-
-                  
-
-
-
-
-    
-</style>
+            span
+              font-size 12px
+            .price
+              color red
+      .popularity 
+        background #fff 
+        .top
+          width 345px
+          height 140px
+          margin 0 15px 10px 15px
+          background #FEF0DF
+          display flex 
+          justify-content space-between
+          align-items center
+          box-sizing border-box
+          .left
+            width 140px
+            height 140px 
+            img
+              width 140px
+              height 140px
+          .right
+            .dis
+              font-size 10px
+            .big
+              font-size 14px
+            .small
+              font-size 12px
+            .pri
+              font-size 14px
+              color red
+        .bottom
+          width 370px
+          height 175px
+          .list
+            width 100%
+            display flex
+            flex-wrap wrap
+            .item
+              width 108px
+              height 177px
+              margin-left 10px
+              padding-bottom 6px
+              display flex
+              flex-wrap wrap
+              img
+                width 108px
+                height 108px
+                margin-bottom 10px
+              .desc
+                width 108px
+                height 36px               
+                font-size 13px
+              .label               
+                padding 2px 5px                
+                font-size 10px
+                color red
+                border 1px solid red
+                border-radius 21%
+                
+      </style>

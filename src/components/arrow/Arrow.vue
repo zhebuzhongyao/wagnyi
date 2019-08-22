@@ -1,34 +1,29 @@
 <template>
-  <div>
-    <div class="top">
-      <span>全部频道</span>
-      <i class="iconfont icon-jiantouxiangshang"></i>
-    </div>
-    <div class="bottom">
-      <ul>
-        <li>推荐</li>
-        <li>居家生活</li>
-        <li>服饰鞋包</li>
-        <li>美食酒水</li>
-        <li>美食酒水</li>
-        <li>美食酒水</li>
-        <li>美食酒水</li>
-        <li>美食酒水</li>
-        <li>美食酒水</li>
-        <li>美食酒水</li>
-        <li>推荐</li>
-        <li>推荐</li>
-      </ul>
-    </div>
+  <div class="arrow" @click="handleClick">
+    <img src="../header/images/logo/arrow.png"/>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   export default {
+    
+    methods: {
+      handleClick(){
+        this.isShow=!this.isShow
+      }
+    },
   }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
-
+  .arrow
+      width 20%
+      text-align center
+      line-height 30px
+      background #fff
+      z-index 99
+      img
+        width 15px
+        height 15px
  
 </style>

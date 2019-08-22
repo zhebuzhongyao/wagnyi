@@ -4,7 +4,7 @@ import Shop from '../pages/shop/Shop.vue'
 import Person from '../pages/person/Person.vue'
 import Shopcart from '../pages/shopCart/ShopCart'
 import Search from '../pages/search/Search.vue'
-import Phone from '../pages/phone/Phone.vue'
+
 
 
 export default[
@@ -42,13 +42,7 @@ export default[
     component: Person,
     meta: {
       showFooter: false
-    },
-    children:[
-      {
-        path: "/person/phone",
-        component: Phone,
-      }
-    ]
+    }
   },
   {
     path: "/search",

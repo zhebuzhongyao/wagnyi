@@ -2,8 +2,8 @@
   <header class="header">        
     <i class="iconfont icon-shouye" @click="$router.replace('/home')"></i>      
     <div>
-      <i class="iconfont icon-fangdajing magnifier"></i>
-      <i class="iconfont icon-gouwuche"></i>
+      <i class="iconfont icon-fangdajing magnifier" @click="$router.push('/search')"></i>
+      <i class="iconfont icon-gouwuche" @click="$router.push('/shopCart')"></i>
     </div>       
   </header>
 </template>

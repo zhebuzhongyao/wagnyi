@@ -17,7 +17,7 @@
     </ul>
     <div class="login">
       <p class="shopping">去添加点什么吧</p>
-      <button class="btn">登录</button>
+      <button class="btn" @click="$router.push('/person')">登录</button>
     </div>      
   </div>
 </template>
@@ -33,7 +33,7 @@
     width 100%
     height 100%
     background-color #F4F4F4
-    background url("./images/shopCart.png") no-repeat center
+    background #F4F4F4 url("./images/shopCart.png") no-repeat center
     background-size 124px 124px
     .header
       width 100%

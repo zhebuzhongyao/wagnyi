@@ -28,16 +28,18 @@
         </div>    
       </div>       
     </div>
-  <div v-else>
-    <Phone />
-  </div>
+
+    
+    <div v-else>
+      <Phone :changeIsShow="changeIsShow"/>
+    </div>
   </div>
 
 </template>
 
 <script type="text/ecmascript-6">
-import Login from '../../components/login/Login'
-import Phone from '../phone/Phone'
+  import Login from '../../components/login/Login'
+  import Phone from '../../components/phone/Phone'
   export default {
     
     data () {
@@ -46,9 +48,10 @@ import Phone from '../phone/Phone'
       }
     },
     methods: {
-      showPhone(){
-        // this.$router.replace('/person/phone')
-
+      changeIsShow () {
+        // console.log('---1---')
+        this.isShow = true
+        // console.log(this.isShow)
       }
     },
     components:{

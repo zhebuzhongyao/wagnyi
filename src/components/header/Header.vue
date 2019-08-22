@@ -7,7 +7,7 @@
         <i class="iconfont icon-fangdajing"></i>
         <span>搜索商品，共21615款好物</span>
       </div>
-      <button class="btn">登录</button>
+      <button class="btn" @click="$router.push('/person')">登录</button>
     </div>
     <Nav/>
   </header>
@@ -55,6 +55,7 @@
           span
             font-size 12px
             color #666
+            
         .btn
           width 40px
           height 20px
