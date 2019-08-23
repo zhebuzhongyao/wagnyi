@@ -1,5 +1,5 @@
 <template>
-  <div class="contentRight" v-if="categoryList.length">
+  <div class="contentRight" v-if="categoryList.length" ref='xxx'>
     <div class="sortRight">
       <div class="sortbanner">
         <img :src="categoryList[index].bannerUrl">
@@ -11,8 +11,10 @@
         </li>
       </ul>
     </div>
+
   </div> 
 </template>
+
 
 <script type="text/ecmascript-6">
 import {mapState} from 'vuex'
@@ -23,16 +25,33 @@ import BScroll from 'better-scroll'
       ...mapState(['categoryList'])
     },
     async mounted() {
-      // await this.$store.dispatch('getCategory')
-      console.log(this.categoryList)
+      // console.log(this.categoryList)
+      // console.log(this.$refs.xxx)
       this.$nextTick(()=>{
-        console.log(this.categoryList.length,this._props.index)
-        // new BScroll('contentRight',{
-        //   click:true,
-        //   scrollY:true,
-        //   probeType:3
-        // })
+        
+        if (this.$refs.xxx) {
+          // console.log(this.$refs.xxx)
+        }
       })
+    },
+    watch: {
+      categoryList () {
+        // console.log(this.categoryList)
+        // console.log(this.$refs.xxx)
+        this.$nextTick(() => {
+          if (!this.BScroll) {
+            this.BScroll = new BScroll('.contentRight',{
+              click:true,
+              scrollY:true,
+              probeType:3
+            })
+          }
+          // console.log(this.$refs.xxx)
+          this.BScroll.refresh()
+        })
+
+       
+      }
     },
   }
 </script>
@@ -65,6 +84,8 @@ import BScroll from 'better-scroll'
           height 72px
         p
           font-size 12px
+          text-align center
+
 
  
 </style>

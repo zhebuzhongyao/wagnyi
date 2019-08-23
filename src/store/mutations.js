@@ -29,7 +29,7 @@ export default {
   },
 
   [SEARCH](state,keywords){
-    console.log(keywords)
+    // console.log(keywords)
     state.keywords=keywords
   }
  

@@ -20,7 +20,7 @@ export default {
   },
   async getDesc({commit}){
     const result = await reqDesc()
-    console.log(result)
+    // console.log(result)
     if(result.code===0){
       const {
         policyDescList,
@@ -48,10 +48,9 @@ export default {
       commit
     }, inputValue) {
     const result = await reqSearch(inputValue)
-    console.log(result)
+    // console.log(result)
     if (result.code === '200') {
-      console.log('--s--',result)
-      // const  = result.data
+      // console.log('--s--',result)
       commit(SEARCH, result.data)
     }
   },

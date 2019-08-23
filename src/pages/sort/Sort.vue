@@ -1,7 +1,7 @@
 <template>
   <div id="sortContainer">
     <div class="sortHeader">
-      <div class="sortSearch" @click="$router.push('/category')">
+      <div class="sortSearch" @click="$router.push('/search')">
         <i class="iconfont icon-fangdajing"></i>
         <span>搜索商品，共21615款好物</span> 
       </div>                
@@ -9,7 +9,7 @@
     <div class="sortContent">
       <div class="contentLeft" ref="left">
         <ul class="contentLeftList">
-          <li v-for="(item, index) in categoryList" :key="item.id" @click="toggle(index)">{{item.name}}</li>          
+          <li v-for="(item, index) in categoryList" :key="item.id" @click="toggle(index)" :class="{active:index===indexList}">{{item.name}}</li>          
         </ul>
       </div>
       <SortRight :index="indexList"/>
